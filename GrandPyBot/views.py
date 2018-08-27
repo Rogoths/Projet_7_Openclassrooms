@@ -1,5 +1,6 @@
 from GrandPyBot import app
 from flask import render_template, request
+from parser import Parser
 
 @app.route('/')
 def index():
@@ -12,4 +13,6 @@ def index():
 
 def bonjour():
     variable = request.args.get('variable')
-    return 'bonjour !!' + variable
+    parser = Parser(variable)
+    parsed_input = parser.string_convert()
+    return 'bonjour !!' + parsed_input
