@@ -5,13 +5,14 @@ import json
 import re
 import unicodedata
 
-PARSER_FILE = open('fr.json')
+
+PARSER_FILE = 'fr.json'
 
 class Parser:
 
     def __init__(self, raw_input):
 
-        self.stopwords = json.load(PARSER_FILE)
+        self.stopwords = json.load(open(PARSER_FILE, 'r'))
         self.raw_input = raw_input
 
     def list_convert(self):

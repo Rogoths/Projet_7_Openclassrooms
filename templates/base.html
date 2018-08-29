@@ -3,13 +3,14 @@
 <head>
   <meta charset="utf-8">
   <title>Grandpy Bot</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
+  <!--link rel="stylesheet" href="style.css"-->
+  <!--script src="script.js"></script-->
 </head>
-  <body>
-    {{variable}}
+  <body>    
     <h1>Bonjour mon enfant, que puis-je faire pour toi ?</h1>
-      <input id="question" type="text">
+    <form method="POST">
+      <input name="text">
       <input type="submit" value="Envoyer le formulaire">
+      {{variable}}
   </body>
 </html>
