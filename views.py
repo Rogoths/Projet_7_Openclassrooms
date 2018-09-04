@@ -1,6 +1,6 @@
 #from GrandPyBot import app
 from flask import Flask, render_template, request
-from parser import Parser
+from parser.py import Parser
 
 app = Flask(__name__)
 

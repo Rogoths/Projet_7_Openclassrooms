@@ -40,9 +40,21 @@ class Parser:
         string = unicodedata.normalize('NFKD', self.string_convert()).encode('ascii', 'ignore').decode()
         return string
 
+    def formated_string(self):
+        string = self.convert_ascii()
+        list = string.split()
+        raw_formated = []
+
+        for word in list:
+            raw_formated.append(word+"+")
+            formated = "".join(raw_formated)
+        return formated
+
+
 if __name__ == "__main__":
     parser = Parser("bonjour  beaucoup #  bonjour émile ?")
     print(parser.list_convert())
     print(parser.string_convert())
     print(parser.remove_symbols())
     print(parser.convert_ascii())
+    print(parser.formated_string())
