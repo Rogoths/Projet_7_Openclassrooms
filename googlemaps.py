@@ -7,18 +7,18 @@ from parser import Parser
 class GoogleMaps:
     """query for Google Maps API by the program"""
 
-    def __init__(self):
+    def __init__(self, query):
         self.url_base = "https://maps.googleapis.com/maps/api/geocode/json?address="
         self.key = str("key="+KEY)
+        self.query = query
 
     def request_data(self):
-        parser = Parser(" d'openclassrooms à paris")
+        parser = Parser(self.query)
         parsed = parser.formated_string()
         #url = requests.get(self.url_base+parsed+self.key)
         url = json.load(open("tour_eiffel.json"))
         #data_raw = url.json()
         return url
-
 
     def get_geocoding(self):
         data = self.request_data()
@@ -28,17 +28,13 @@ class GoogleMaps:
             components = coords["geometry"]["location"]
             long = components["lng"]
             lat = components["lat"]
-            geocode = long,lat
 
-            return geocode
-
-        #return data
-
-
-
+            return long,lat
 
 if __name__ == "__main__":
-
-    gmaps = GoogleMaps()
+    query = "d'openclassrooms à paris"
+    gmaps = GoogleMaps(query)
     #print(gmaps.request_data())
-    print(gmaps.get_geocoding())
+    lng, lat = gmaps.get_geocoding()
+    print(lng)
+    print(lat)

@@ -11,3 +11,8 @@ def test_remove_symbols():
 def test_convert_ascii():
     parser = Parser("bonjour  beaucoup#  bonjour? émile")
     assert parser.convert_ascii() == "bonjour bonjour emile"
+
+def test_list_convert():
+    result = ["openclassrooms", "Paris"]
+    parser = Parser("openclassrooms Paris")
+    assert parser.list_convert() == result
