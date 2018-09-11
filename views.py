@@ -1,6 +1,8 @@
 #from GrandPyBot import app
 from flask import Flask, render_template, request
-from parser.py import Parser
+from parser import Parser
+from googlemaps import GoogleMaps
+from mediawiki import Mediawiki
 
 app = Flask(__name__)
 
@@ -17,7 +19,13 @@ def user_query():
     lower_text = text.lower()#lower the text
     parser = Parser(lower_text)
     normalize_text = parser.convert_ascii()
-    return render_template('base.html', variable=normalize_text)
+    gmaps = GoogleMaps(normalize_text)
+    long, lat = gmaps.get_geocoding()
+    wiki = Mediawiki(lat,long)
+    extract = wiki.get_info()
+
+
+    return render_template('base.html', variable=extract)
 
 if __name__ == '__main__':
     app.run(debug=True)#developer mode no need to restart the server

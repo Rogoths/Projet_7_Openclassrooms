@@ -20,8 +20,8 @@ class Mediawiki:
             'action': 'query',
             'format': 'json',
             'prop': 'extracts',
-            'exintro': '',
-            'explaintext': '',
+            'exintro': True,
+            'explaintext': True,
             'pageids': pageid
 }
         data = requests.get('https://fr.wikipedia.org/w/api.php',params=parameters)
