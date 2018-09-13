@@ -3,14 +3,21 @@
 <head>
   <meta charset="utf-8">
   <title>Grandpy Bot</title>
-  <!--link rel="stylesheet" href="style.css"-->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css.css') }}">
   <!--script src="script.js"></script-->
 </head>
   <body>
+    <script src="{{ url_for('static', filename='jquery-3.3.1.min.js') }}"></script>
     <h1>Bonjour mon enfant, que puis-je faire pour toi ?</h1>
     <form method="POST">
       <input name="text">
       <input type="submit" value="Envoyer le formulaire">
+    </form>
       {{variable}}
+      <div id="map"></div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ config['KEY'] }}&callback=initMap"
+    async defer></script>
+
   </body>
 </html>

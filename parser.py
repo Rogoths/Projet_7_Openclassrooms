@@ -44,6 +44,7 @@ class Parser:
         string = self.convert_ascii()
         list = string.split()
         raw_formated = []
+        formated = ""
 
         for word in list:
             raw_formated.append(word+"+")

@@ -9,16 +9,16 @@ class GoogleMaps:
 
     def __init__(self, query):
         self.url_base = "https://maps.googleapis.com/maps/api/geocode/json?address="
-        self.key = str("key="+KEY)
+        self.key = str("+key="+KEY)
         self.query = query
 
     def request_data(self):
         parser = Parser(self.query)
         parsed = parser.formated_string()
-        #url = requests.get(self.url_base+parsed+self.key)
-        url = json.load(open("tour_eiffel.json"))
-        #data_raw = url.json()
-        return url
+        url = requests.get(self.url_base+parsed+self.key)
+        #url = json.load(open("tour_eiffel.json"))
+        data_raw = url.json()
+        return data_raw
 
     def get_geocoding(self):
         data = self.request_data()
@@ -29,12 +29,13 @@ class GoogleMaps:
             long = components["lng"]
             lat = components["lat"]
 
-            return long,lat
+        return long, lat
 
 if __name__ == "__main__":
     query = "d'openclassrooms à paris"
     gmaps = GoogleMaps(query)
     print(gmaps.request_data())
     lng, lat = gmaps.get_geocoding()
+
     print(lng)
     print(lat)
