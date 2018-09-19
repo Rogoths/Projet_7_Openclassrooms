@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>Grandpy Bot</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css.css') }}">
   <!--script src="script.js"></script-->
@@ -10,14 +10,16 @@
     <script src="{{ url_for('static', filename='jquery-3.3.1.min.js') }}"></script>
     <h1>Bonjour mon enfant, que puis-je faire pour toi ?</h1>
     <form method="POST">
-      <input name="text">
-      <input type="submit" value="Envoyer le formulaire">
+      <input id=text name="text">
+      <input id="query" type="submit" value="Envoyer le formulaire">
     </form>
-      {{variable}}
       <div id="map"></div>
+      <div id="wiki">{{wiki_text}}</div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key={{ config['KEY'] }}&callback=initMap"
     async defer></script>
+    <p>https://maps.googleapis.com/maps/api/js?key={{ config.KEY }}&callback=initMap</p>
+
 
   </body>
 </html>

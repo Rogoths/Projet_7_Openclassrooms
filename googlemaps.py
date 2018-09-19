@@ -9,7 +9,7 @@ class GoogleMaps:
 
     def __init__(self, query):
         self.url_base = "https://maps.googleapis.com/maps/api/geocode/json?address="
-        self.key = str("+key="+KEY)
+        self.key = str("&key="+KEY)
         self.query = query
 
     def request_data(self):
