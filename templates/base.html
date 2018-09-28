@@ -11,7 +11,9 @@
   <body>
     <header class="container-fluid header">
       <div class="container">
-        <h1> GrandPy Bot</h1>
+          <img src="{{ url_for('static', filename='img/robot.png') }}" alt="GrandPy Bot" class="robot">
+          <h1> GrandPy Bot </h1>
+        </div>
       </div>
     </header>
     <section class="container-fluid grandpy">
@@ -31,11 +33,10 @@
               <div id="map" class="map"></div>
             </article>
             <article class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
               <div id="wiki" class="wiki"></div>
             </article>
-
           </div>
-
         </div>
       </section>
 
@@ -45,7 +46,14 @@
 
     </div>
   </body>
-  <footer class="container-flui footer">
+  <footer class="container-fluid footer">
+    <div class="container">
+      <article class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+        <a href="https://github.com/Rogoths/" class="github"><img src="{{ url_for('static', filename='img/github.png') }}" alt="">Profil Github</a>
+
+      </article>
+
+    </div>
 
   </footer>
 </html>
