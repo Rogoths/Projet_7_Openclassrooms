@@ -3,23 +3,49 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>Grandpy Bot</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css.css') }}">
-  <!--script src="script.js"></script-->
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/css.css') }}">
+  <script src="{{ url_for('static', filename='js/jquery-3.3.1.js') }}"></script>
 </head>
   <body>
-    <script src="{{ url_for('static', filename='jquery-3.3.1.min.js') }}"></script>
-    <h1>Bonjour mon enfant, que puis-je faire pour toi ?</h1>
-    <form method="POST">
-      <input id=text name="text">
-      <input id="query" type="submit" value="Envoyer le formulaire">
-    </form>
-      <div id="map"></div>
-      <div id="wiki">{{wiki_text}}</div>
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key={{ config['KEY'] }}&callback=initMap"
-    async defer></script>
-    <p>https://maps.googleapis.com/maps/api/js?key={{ config.KEY }}&callback=initMap</p>
+    <header class="container-fluid header">
+      <div class="container">
+        <h1> GrandPy Bot</h1>
+      </div>
+    </header>
+    <section class="container-fluid grandpy">
+      <div class="container">
+        <h2>Bonjour mon enfant, que puis-je faire pour toi ?</h2>
 
+        <form method="POST" action="/fake">
+          <p>Rentres le lieu pour lequel tu souhaites avoir des informations</p>
+          <input id="text" name="text">
+          <input id="query" type="submit" value="Envoyer le formulaire">
+        </form>
+      </section>
+      <section class="container-fluid response">
+        <div class="container">
+          <div class="row">
+            <article class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+              <div id="map" class="map"></div>
+            </article>
+            <article class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+              <div id="wiki" class="wiki"></div>
+            </article>
 
+          </div>
+
+        </div>
+      </section>
+
+      <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key={{ config['KEY'] }}&callback=initMap"
+      async defer></script>
+
+    </div>
   </body>
+  <footer class="container-flui footer">
+
+  </footer>
 </html>

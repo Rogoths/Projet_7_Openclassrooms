@@ -1,1 +1,0 @@
-from GrandPyBot import app

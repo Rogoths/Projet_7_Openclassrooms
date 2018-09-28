@@ -14,7 +14,7 @@ def index():
 @app.route('/ajax', methods=['GET'])
 def user_query():
     response = {}
-    text = request.form["text"]#input in html file
+    text = request.args.get('query')#input in html file
     lower_text = text.lower()#lower the text
     parser = Parser(lower_text)
     normalize_text = parser.convert_ascii()
@@ -28,7 +28,7 @@ def user_query():
 
 
     return jsonify(response)
-
+'''
 @app.route('/s', methods=['GET'])
 def ajax_request():
     response = {}
@@ -46,7 +46,7 @@ def ajax_request():
     extract = wiki.get_info()
     #return render_template('base.html', variable=extract)
     return jsonify(response)
-
+'''
 
 if __name__ == '__main__':
     app.run(debug=True)#developer mode no need to restart the server

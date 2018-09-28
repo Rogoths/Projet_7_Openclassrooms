@@ -6,24 +6,26 @@ function initMap(lat, lng) {
     center: location,
     zoom: 8
   });
-}
+};
+
 $(document).ready(function() {
 
-  $('form').on('submit', function(e) {
+  $('form').submit(function(e) {
 
     $.ajax({
       data : {
-        query : $('text').val(),
+        query : $('#text').val(),
       },
-      type : 'POST',
+      type : 'GET',
       url : '/ajax'
-    })
-    .done(function(data) {
+    }).done(function(data) {
+    console.log($('input#text').val());
     $('#wiki').text(data.extract).show(); // show the extract in wiki id
 
     });
-    e.preventDefault(); // browser don't send input
 
+    e.preventDefault(); // browser don't send input
+    console.log($('input#text').val());
 
   });
 
