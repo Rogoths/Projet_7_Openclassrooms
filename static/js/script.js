@@ -1,10 +1,10 @@
 var map;
 
-function initMap(lat, lng) {
-  var location = {lat: lat, lng: lng}
+function initMap() {
+  var location = {lat: 49, lng: 1}
   map = new google.maps.Map(document.getElementById('map'), {
     center: location,
-    zoom: 8
+    zoom: 12
   });
 };
 
@@ -18,14 +18,15 @@ $(document).ready(function() {
       },
       type : 'GET',
       url : '/ajax'
-    }).done(function(data) {
-    console.log($('input#text').val());
-    $('#wiki').text(data.extract).show(); // show the extract in wiki id
-
+    })
+    .done(function(data) {
+      console.log(data);
+      $('#wiki').text(data.extract).show(); // show the extract in wiki id
+      map.setCenter({lat: data.lat, lng: data.long})
     });
 
-    e.preventDefault(); // browser don't send input
-    console.log($('input#text').val());
+    e.preventDefault(); // browser don't send input - /fake in my html for test
+
 
   });
 

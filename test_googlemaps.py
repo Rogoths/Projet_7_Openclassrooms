@@ -1,20 +1,31 @@
 from googlemaps import GoogleMaps
 
-import urllib.request
+import requests
 
-from io import BytesIO
 import json
+
+class Request_mock:
+
+    def __init__(self, result):
+
+        self.result = result
+
+    def json(self):
+
+        return json.dumps(self.result)
 
 def test_request_data(monkeypatch):
     result = [{
-            'results': " "
+            "results": " "
             }
         ]
 
     def mockreturn(request):
-        return BytesIO(json.dumps(result).encode())
 
+        response = Request_mock(result)
 
-    monkeypatch.setattr(urllib.request, 'urlopen', mockreturn)
-    gmaps = GoogleMaps()
-    assert gmaps.request_data() == result
+        return response
+
+    monkeypatch.setattr(requests,"get", mockreturn)
+    gmaps = GoogleMaps("compiegne")
+    assert json.loads(gmaps.request_data()) == result

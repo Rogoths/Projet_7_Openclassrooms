@@ -3,15 +3,17 @@ from flask import Flask, render_template, request, jsonify
 from parser import Parser
 from googlemaps import GoogleMaps
 from mediawiki import Mediawiki
+from config import KEY
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('base.html')
+
+    return render_template('base.html', key_googlemaps=KEY)
 
 
-@app.route('/ajax', methods=['GET'])
+@app.route('/ajax', methods=['GET', 'POST',])
 def user_query():
     response = {}
     text = request.args.get('query')#input in html file
@@ -24,8 +26,7 @@ def user_query():
     response["long"] = long
     response["lat"] = lat
     wiki = Mediawiki(lat, long)
-    extract = wiki.get_info()
-
+    response["extract"] = wiki.get_info()
 
     return jsonify(response)
 '''
