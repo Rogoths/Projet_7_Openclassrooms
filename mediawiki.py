@@ -12,7 +12,9 @@ class Mediawiki:
         data = requests.get(self.url)
         result = data.json()
         pageid = result['query']['geosearch'][0]["pageid"]#dont forget[0] for the list
+        print(type(data))
         return pageid
+
 
     def get_info(self):
         pageid = self.request_wiki()

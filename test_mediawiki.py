@@ -25,4 +25,5 @@ def test_request_data(monkeypatch):
 
     monkeypatch.setattr(requests,"get", mockreturn)
     wiki = Mediawiki(5,5)
-    assert int(wiki) == 4641538
+    test = wiki.request_wiki()
+    assert test == result

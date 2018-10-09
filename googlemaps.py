@@ -29,13 +29,12 @@ class GoogleMaps:
             long = components["lng"]
             lat = components["lat"]
 
-        return long, lat
+            return long, lat
 
 if __name__ == "__main__":
-    query = "d'openclassrooms à paris"
+    query = "paris"
     gmaps = GoogleMaps(query)
     print(gmaps.request_data())
     lng, lat = gmaps.get_geocoding()
-
     print(lng)
     print(lat)
