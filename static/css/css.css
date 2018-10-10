@@ -39,10 +39,10 @@ margin: 0px;
   font-weight: bold;
   letter-spacing: 1px;
   text-shadow: 2px 2px 20px black;
-  position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
+  position: absolute;
 }
 a:hover {
   text-decoration: none;
@@ -59,12 +59,12 @@ a:hover {
 .github {
   width: 70px;
   max-width: 70px;
-  float: left;
+
 }
 .trello {
   width: 70px;
   max-width: 70px;
-  float: center;
+
 }
 
 .title {

@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <title>Grandpy Bot</title>
 
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/css.css') }}">
   <script src="{{ url_for('static', filename='js/jquery-3.3.1.js') }}"></script>
 </head>
@@ -25,20 +25,19 @@
           <input id="text" name="text">
           <input id="query" type="submit" value="Envoyer le formulaire">
         </form>
+      <br>
+      <div id="adress" class="adress"></div>
+      <br>
       </section>
       <section class="container-fluid response">
         <div class="container">
           <div class="row">
-            <article class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
-              <br>
-              <div id="adress" class="adress"></div>
-              <br>
             </article>
-            <article class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+            <article class="col-md-8 col-lg-8 col-xs-12 col-sm-12">
               <div id="adress" class="adress"></div>
               <div id="map" class="map"></div>
             </article>
-            <article class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+            <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
               <br>
               <div id="wiki" class="wiki"></div>
             </article>
@@ -54,15 +53,15 @@
   </body>
   <footer class="container-fluid footer">
     <div class="container">
-      <article class="col-md-4 col-lg-4 col-xs-4 col-sm-4">
+      <div class="row">
+      <article class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
         <a href="https://github.com/Rogoths/" class="github"><img src="{{ url_for('static', filename='img/github.png') }}" alt="">Profil Github</a>
-    </div>
-
-    <div class="container">
-      <article class="col-md-4 col-lg-4 col-xs-4 col-sm-4">
+      </article>
+      <article class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
         <a href="https://github.com/Rogoths/" class="trello"><img src="{{ url_for('static', filename='img/trello.png') }}" alt="">Trello du projet</a>
       </article>
-
+    </div>
+    </div>
     </div>
 
   </footer>
