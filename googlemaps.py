@@ -25,16 +25,18 @@ class GoogleMaps:
         data_results = data["results"]
 
         for coords in data_results:
+            adress = coords["formatted_address"]
             components = coords["geometry"]["location"]
             long = components["lng"]
             lat = components["lat"]
 
-            return long, lat
+            return long, lat, adress
 
 if __name__ == "__main__":
     query = "paris"
     gmaps = GoogleMaps(query)
     print(gmaps.request_data())
-    lng, lat = gmaps.get_geocoding()
+    lng, lat, adress = gmaps.get_geocoding()
     print(lng)
     print(lat)
+    print(adress)

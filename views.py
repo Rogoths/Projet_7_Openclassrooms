@@ -23,9 +23,10 @@ def user_query():
     response["text"] = normalize_text
     gmaps = GoogleMaps(normalize_text)
     try:
-        long, lat = gmaps.get_geocoding()
+        long, lat, adress = gmaps.get_geocoding()
         response["long"] = long
         response["lat"] = lat
+        response["adress"] = "l'adresse de ta demande est "+adress
         wiki = Mediawiki(lat, long)
         response["extract"] = wiki.get_info()
 
@@ -33,7 +34,8 @@ def user_query():
     except Exception as e:# -*- coding: utf-8 -*-
         print("Erreur lors de la saisie de la requète:")
         print(e)
-        response["extract"] = "Je suis navré... je n'ai pas compris ta demande. Tu peux réessayer si tu veux :)"
+        response["extract"] = ""
+        response["adress"] = "Je suis navré... je n'ai pas compris ta demande. Tu peux réessayer si tu veux :)"
         return jsonify(response)
 '''
 @app.route('/s', methods=['GET'])

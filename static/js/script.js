@@ -22,6 +22,7 @@ $(document).ready(function() {
     .done(function(data) {
       console.log(data);
       $('#wiki').text(data.extract).show(); // show the extract in wiki id
+      $('#adress').text(data.adress).show();
       map.setCenter({lat: data.lat, lng: data.long})
     });
 
