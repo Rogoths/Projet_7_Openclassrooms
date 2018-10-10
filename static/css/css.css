@@ -10,7 +10,8 @@ margin: 0px;
 }
 
 .wiki {
-
+  height: 400px;
+  width: 400px;
 }
 
 .header {
@@ -51,10 +52,19 @@ a:hover {
   color: #ffffff;
 }
 .robot {
-  width: 90px;
-  max-width: 90px;
+  width: 70px;
+  max-width: 70px;
   float: left;
-
+}
+.github {
+  width: 70px;
+  max-width: 70px;
+  float: left;
+}
+.trello {
+  width: 70px;
+  max-width: 70px;
+  float: center;
 }
 
 .title {

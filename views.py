@@ -4,6 +4,7 @@ from parser import Parser
 from googlemaps import GoogleMaps
 from mediawiki import Mediawiki
 from config import KEY
+from messages import random_messages
 
 app = Flask(__name__)
 
@@ -28,7 +29,8 @@ def user_query():
         response["lat"] = lat
         response["adress"] = "l'adresse de ta demande est "+adress
         wiki = Mediawiki(lat, long)
-        response["extract"] = wiki.get_info()
+        m = random_messages()
+        response["extract"] = str(m)+wiki.get_info()
 
         return jsonify(response)
     except Exception as e:# -*- coding: utf-8 -*-
