@@ -36,15 +36,15 @@ class GoogleMaps:
                 return long, lat, adress
 
         elif data_error == "ZERO_RESULTS":
-            long = 0
-            lat = 0
+            long = None
+            lat = None
             adress = "Désolé. Je ne trouve aucun résultat :("
 
             return long, lat, adress
 
         else:
-            long = 0
-            lat = 0
+            long = None
+            lat = None
             adress = "Désolé. Il semble y avoir un problème d'allignement des planètes. Veuillez communiquer le message d'erreur suivant à mon créateur : "+str(data_error)
 
             return long, lat, adress

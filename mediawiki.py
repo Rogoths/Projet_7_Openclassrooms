@@ -7,14 +7,17 @@ class Mediawiki:
     def __init__(self, lat, lng):
         self.url = "https://fr.wikipedia.org/w/api.php?action=query&list=geosearch&gsradius=10000&gscoord="+str(lat)+"|"+str(lng)+"&format=json"
 
-
     def request_wiki(self):
-        data = requests.get(self.url)
-        result = data.json()
-        pageid = result['query']['geosearch'][0]["pageid"]#dont forget[0] for the list
-        print(type(data))
-        return pageid
 
+        try:
+            data = requests.get(self.url)
+            result = data.json()
+            pageid = result['query']['geosearch'][0]["pageid"]#dont forget[0] for the list
+            print(type(data))
+            return pageid
+        except Exception as e:
+            print(e)
+            pass
 
     def get_info(self):
         pageid = self.request_wiki()
@@ -26,10 +29,15 @@ class Mediawiki:
             'explaintext': True,
             'pageids': pageid
 }
-        data = requests.get('https://fr.wikipedia.org/w/api.php',params=parameters)
-        result = data.json()
-        extract = result['query']['pages'][str(pageid)]['extract']
-        return extract
+        try:
+            data = requests.get('https://fr.wikipedia.org/w/api.php',params=parameters)
+            result = data.json()
+            extract = result['query']['pages'][str(pageid)]['extract']
+            return extract
+
+        except Exception as e:
+            print(e)
+            pass
 
 if __name__ == "__main__":
     wiki = Mediawiki(48.858222222222,2.2945)

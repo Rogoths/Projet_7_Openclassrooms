@@ -28,7 +28,10 @@ def user_query():
     response["adress"] = adress
     wiki = Mediawiki(lat, long)
     m = random_messages()
-    response["extract"] = str(m)+wiki.get_info()
+    try:
+        response["extract"] = str(m)+wiki.get_info()
+    except Exception as e:
+        print(e)
     return jsonify(response)
 
 if __name__ == '__main__':
