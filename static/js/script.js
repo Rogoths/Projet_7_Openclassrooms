@@ -19,7 +19,13 @@ $(document).ready(function() {
       type : 'GET',
       url : '/ajax'
     })
+
     .done(function(data) {
+      var no_text=document.getElementById("text").value;
+      if (no_text==""){
+        alert("Tu dois écrire quelque chose mon petit :)")
+        return false;
+      }
       console.log(data);
       $('#wiki').text(data.extract).show(); // show the extract in wiki id
       $('#adress').text(data.adress).show();
