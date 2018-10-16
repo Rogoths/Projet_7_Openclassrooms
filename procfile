@@ -1,0 +1,2 @@
+web: gunicorn Projet_7_openclassrooms:app
+init: FLASK_APP=views.py
