@@ -6,6 +6,10 @@ function initMap() {
     center: location,
     zoom: 12
   });
+  var marker = new google.maps.Marker({
+        position: location,
+        map: map
+  });
 };
 
 $(document).ready(function() {
@@ -29,7 +33,9 @@ $(document).ready(function() {
       console.log(data);
       $('#wiki').text(data.extract).show(); // show the extract in wiki id
       $('#adress').text(data.adress).show();
-      map.setCenter({lat: data.lat, lng: data.long})
+      if (data.lat!=null){
+        map.setCenter({lat: data.lat, lng: data.long})
+      }
     });
 
     e.preventDefault(); // browser don't send input - /fake in my html for test

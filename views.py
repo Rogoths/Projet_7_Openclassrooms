@@ -32,7 +32,8 @@ def user_query():
         response["extract"] = str(m)+wiki.get_info()
     except Exception as e:
         print(e)
+        response["extract"] = "¯\_(ツ)_/¯""Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     return jsonify(response)
 
 if __name__ == '__main__':
-    app.run(debug=True)#developer mode no need to restart the server
+    app.run(debug=False)#developer mode no need to restart the server

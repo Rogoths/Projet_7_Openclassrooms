@@ -3,19 +3,18 @@ font-family: sans-serif;
 padding: 0px;
 margin: 0px;
 text-align: center;
+
 }
 
 .map {
   height: 400px;
-  width: 400px;
-}
+  min-height: 25%;
+  width: auto;
 
-.wiki {
-  height: 400px;
-  width: 400px;
 }
 
 .header {
+  padding-top: 1em;
   background-color: #1D617B;
   height: 100px;
   line-height: 100px;
@@ -26,16 +25,13 @@ text-align: center;
   top: 0;
   left: 0;
   right: 0;
-}
 
-.container-fluid {
-  padding: 0px;
 }
 
 .footer {
   background-color: #1D617B;
-  height: 100px;
-  line-height: 100px;
+  padding-top: 1em;
+  padding-bottom: 1em;
   color: grey;
   font-weight: bold;
   letter-spacing: 1px;
@@ -43,36 +39,55 @@ text-align: center;
   bottom: 0;
   left: 0;
   right: 0;
-  position: absolute;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
 }
+
 a:hover {
   text-decoration: none;
+
 }
 
 .footer a {
   color: #ffffff;
+
 }
+
 .robot {
   width: 70px;
   max-width: 70px;
   float: left;
+
 }
+
 .github {
   width: 70px;
   max-width: 70px;
 
 }
+
 .trello {
-  width: 70px;
-  max-width: 70px;
+  width: 90px;
+  max-width: 90px;
 
 }
 
-.title {
+h1 {
   text-align: center;
+
 }
+
 body {
   background-color: #203033;
   text-shadow: 1px 1px 1px black;
   color: grey;
+
+}
+
+#container-fluid response {
+  display:flex;
+  justify-content: space-around;
+
 }
