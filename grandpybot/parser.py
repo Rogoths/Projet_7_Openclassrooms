@@ -6,7 +6,7 @@ import re
 import unicodedata
 
 
-PARSER_FILE = 'fr.json'
+PARSER_FILE = 'grandpybot/fr.json'
 
 class Parser:
 

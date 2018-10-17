@@ -1,4 +1,4 @@
-from googlemaps import GoogleMaps
+from .googlemaps import GoogleMaps
 
 import requests
 

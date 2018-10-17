@@ -1,4 +1,4 @@
-from parser import Parser
+from .parser import Parser
 
 def test_string_convert():
     parser = Parser("bonjour  beaucoup  bonjour")

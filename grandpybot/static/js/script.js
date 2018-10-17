@@ -24,12 +24,18 @@ $(document).ready(function() {
       url : '/ajax'
     })
 
-    .done(function(data) {
+    .done(function(data, status, jqxhr) {
       var no_text=document.getElementById("text").value;
+      console.log(jqxhr.status)
       if (no_text==""){
         alert("Tu dois écrire quelque chose mon petit :)")
         return false;
       }
+      if (status==404){
+        alert("Ta requète est invalide")
+        return false;
+      }
+
       console.log(data);
       $('#wiki').text(data.extract).show(); // show the extract in wiki id
       $('#adress').text(data.adress).show();

@@ -1,15 +1,19 @@
 import requests
 import json
-from config import KEY
-from parser import Parser
+from .parser import Parser
+from flask import Flask
 
+app = Flask(__name__)
+
+
+app.config.from_object('config')
 
 class GoogleMaps:
     """query for Google Maps API by the program"""
 
     def __init__(self, query):
         self.url_base = "https://maps.googleapis.com/maps/api/geocode/json?address="
-        self.key = str("&key="+KEY)
+        self.key = str("&key="+app.config['KEY'])
         self.query = query
 
     def request_data(self):

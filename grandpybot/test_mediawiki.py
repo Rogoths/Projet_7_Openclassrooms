@@ -1,4 +1,4 @@
-from mediawiki import Mediawiki
+from .mediawiki import Mediawiki
 
 import json
 
