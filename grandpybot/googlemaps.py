@@ -13,7 +13,7 @@ class GoogleMaps:
 
     def __init__(self, query):
         self.url_base = "https://maps.googleapis.com/maps/api/geocode/json?address="
-        self.key = str("&key="+app.config['KEY'])
+        self.key = str("&key="+app.config['KEY_GMAPS'])
         self.query = query
 
     def request_data(self):

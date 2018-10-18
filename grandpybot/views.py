@@ -12,7 +12,7 @@ app.config.from_object('config')
 @app.route('/')
 def index():
 
-    return render_template('base.html', key_googlemaps=app.config['KEY'])
+    return render_template('base.html', key_googlemaps=app.config['KEY_GMAPS'])
 
 @app.route('/ajax', methods=['GET', 'POST',])
 def user_query():
