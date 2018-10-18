@@ -5,6 +5,7 @@ import requests
 import json
 
 class Request_mock:
+    """mocking a gmaps requests"""
 
     def __init__(self, result):
 

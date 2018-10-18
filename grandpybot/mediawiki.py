@@ -8,7 +8,7 @@ class Mediawiki:
         self.url = "https://fr.wikipedia.org/w/api.php?action=query&list=geosearch&gsradius=10000&gscoord="+str(lat)+"|"+str(lng)+"&format=json"
 
     def request_wiki(self):
-
+        """with long lat get the pageid of the user request"""
         try:
             data = requests.get(self.url)
             result = data.json()
@@ -20,6 +20,7 @@ class Mediawiki:
             pass
 
     def get_info(self):
+        """request an extract with the pageid"""
         pageid = self.request_wiki()
         parameters = {
             'action': 'query',

@@ -41,6 +41,7 @@ class Parser:
         return string
 
     def formated_string(self):
+        """add "+" between words"""
         string = self.convert_ascii()
         list = string.split()
         raw_formated = []

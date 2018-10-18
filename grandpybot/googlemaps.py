@@ -17,6 +17,7 @@ class GoogleMaps:
         self.query = query
 
     def request_data(self):
+        """get json data from gmaps api"""
         parser = Parser(self.query)
         parsed = parser.formated_string()
         url = requests.get(self.url_base+parsed+self.key)
@@ -26,6 +27,7 @@ class GoogleMaps:
         return data_raw
 
     def get_geocoding(self):
+        """get long lat and address from gmaps api and data return in json"""
         data = self.request_data()
         data_results = data["results"]
         data_error = data["status"]

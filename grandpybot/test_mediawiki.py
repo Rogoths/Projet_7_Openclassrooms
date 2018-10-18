@@ -5,6 +5,7 @@ import json
 import requests
 
 class Request_mock:
+    """mocking a mediawiki requests"""
 
     def __init__(self, result):
 
