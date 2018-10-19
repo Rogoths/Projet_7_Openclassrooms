@@ -6,7 +6,6 @@ function initMap() {
     center: location,
     zoom: 12
   });
-
 };
 
 $(document).ready(function() {
@@ -30,8 +29,6 @@ $(document).ready(function() {
         return false;
       }
 
-
-
       console.log(data);
       $('#wiki').text(data.extract).show(); // show the extract in wiki id
       $('#adress').text(data.adress).show();
@@ -41,13 +38,10 @@ $(document).ready(function() {
               position: {lat: data.lat, lng: data.long},
               map: map,
         });
-
       }
     });
 
     e.preventDefault(); // browser don't send input - /fake in my html for test
 
-
   });
-
 });

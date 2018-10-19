@@ -29,7 +29,7 @@ class Mediawiki:
             'exintro': True,
             'explaintext': True,
             'pageids': pageid
-}
+            }
         try:
             data = requests.get('https://fr.wikipedia.org/w/api.php',params=parameters)
             result = data.json()

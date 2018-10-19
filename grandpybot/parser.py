@@ -9,11 +9,17 @@ import unicodedata
 PARSER_FILE = 'grandpybot/fr.json'
 
 class Parser:
+    """normalize the input from the user to be used for the api"""
 
     def __init__(self, raw_input):
 
         self.stopwords = json.load(open(PARSER_FILE, 'r'))
         self.raw_input = raw_input
+
+    def remove_symbols(self):
+        """remove anything that is not a letter or number"""
+        removed_string = re.sub(r'[\W_]+', ' ', self.raw_input)
+        return removed_string
 
     def list_convert(self):
         """convert the string in list and delete the words we don't want in the answer"""
@@ -29,11 +35,6 @@ class Parser:
         """convert list in string"""
         list = self.list_convert()
         return " ".join(list)
-
-    def remove_symbols(self):
-        """remove anything that is not a letter or number"""
-        removed_string = re.sub(r'[\W_]+', ' ', self.raw_input)
-        return removed_string
 
     def convert_ascii(self):
         """remove accents in words"""

@@ -20,7 +20,7 @@ def user_query():
     text = request.args.get('query')#input in html file
     lower_text = text.lower()#lower the text
     parser = Parser(lower_text)
-    normalize_text = parser.convert_ascii()
+    normalize_text = parser.formated_string()
     response["text"] = normalize_text
     gmaps = GoogleMaps(normalize_text)
     long, lat, adress = gmaps.get_geocoding()

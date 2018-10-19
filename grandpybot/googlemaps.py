@@ -1,6 +1,5 @@
 import requests
 import json
-from .parser import Parser
 from flask import Flask
 
 app = Flask(__name__)
@@ -18,9 +17,7 @@ class GoogleMaps:
 
     def request_data(self):
         """get json data from gmaps api"""
-        parser = Parser(self.query)
-        parsed = parser.formated_string()
-        url = requests.get(self.url_base+parsed+self.key)
+        url = requests.get(self.url_base+self.query+self.key)
         #url = json.load(open("tour_eiffel.json"))
         data_raw = url.json()
 
@@ -51,7 +48,7 @@ class GoogleMaps:
         else:
             long = None
             lat = None
-            adress = "Désolé. Il semble y avoir un problème d'allignement des planètes. Veuillez communiquer le message d'erreur suivant à mon créateur : "+str(data_error)
+            adress = "Désolé. Il semble y avoir un problème d'allignement des /planètes. Veuillez communiquer le message d'erreur suivant à mon créateur : "+str(data_error)
 
             return long, lat, adress
 
